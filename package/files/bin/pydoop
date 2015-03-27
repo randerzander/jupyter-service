@@ -1,0 +1,4 @@
+#!/usr/local/bin/python2.7
+# EASY-INSTALL-SCRIPT: 'pydoop==1.0.0','pydoop'
+__requires__ = 'pydoop==1.0.0'
+__import__('pkg_resources').run_script('pydoop==1.0.0', 'pydoop')
