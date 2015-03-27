@@ -23,7 +23,6 @@ tar -xzvf $FILES_DIR/site-packages.tgz
 cd site-packages
 # scipy too big to package with site-packages
 tar -xzvf $FILES_DIR/scipy.tgz
-# Deploy pyspark python libs
 cd /usr/local/bin
 cp $FILES_DIR/bin/* .
 chmod +x *
