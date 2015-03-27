@@ -6,12 +6,12 @@ To enable support for the Spark REPL API, the service downloads and uses a Spark
 
 To deploy, copy the entire directory into your Ambari stacks folder and restart Ambari:
 
-**Note**: If using the HDP 2.2 Sandbox, add a port forwarding rule for port 9999:
-![Virtualbox Port Forwarding](screenshots/virtualbox.png)
-and:
+**Note**: If using the HDP 2.2 Sandbox, stop the ambari service
 ```
 sudo service ambari stop
 ```
+and add a port forwarding rule for port 9999:
+![Virtualbox Port Forwarding](screenshots/virtualbox.png)
 
 **Stack Install Directions:**
 ```
@@ -25,6 +25,8 @@ Then you can click on 'Add Service' from the 'Actions' dropdown menu in the bott
 ![IPython Notebook Web UI](screenshots/jupyter.png)
 
 ![IPython Notebook Example](screenshots/wordCount.png)
+
+[A logfile WordCount Analysis Example](screenshots/WordCount.html)
 
 If you want to remove the IPython service, stop it, then:
 ```
