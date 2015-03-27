@@ -10,25 +10,8 @@ if [ -d $ROOT_DIR/profiles ]; then
   exit 0
 fi
 
-export HDP_VER=`ls /usr/hdp/ | grep 2`
-if [ -e /usr/hdp/$HDP_VER/hadoop/bin/hdfs ]
-then
-	export HADOOP_HOME=/usr/hdp/$HDP_VER/hadoop
-	export HADOOP_VERSION=2.6.0.$HDP_VER
-	export HDP_VERSION=2.2
-	export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64
-else
-	export HADOOP_HOME=/usr/lib/hadoop
-	export JDK_VER=`ls /usr/jdk64/`
-	export JAVA_HOME=/usr/jdk64/$JDK_VER	
-	export HDP_VERSION=2.1
-fi
-export YARN_CONF_DIR=/etc/hadoop/conf
-export HADOOP_CONF_DIR=/etc/hadoop/conf
-
-echo "export HADOOP_HOME=$HADOOP_HOME" >> $BASH_PROFILE
-echo "export HADOOP_VERSION=$HADOOP_VERSION" >> $BASH_PROFILE
-echo "export JAVA_HOME=$JAVA_HOME"  >> $BASH_PROFILE
+echo "export HADOOP_HOME=/usr/hdp/current/hadoop-client" >> $BASH_PROFILE
+echo "export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64"  >> $BASH_PROFILE
 echo "export YARN_CONF_DIR=/etc/hadoop/conf" >> $BASH_PROFILE
 echo "export HADOOP_CONF_DIR=/etc/hadoop/conf" >> $BASH_PROFILE
 echo "export PATH=$PATH:/usr/local/bin" >> $BASH_PROFILE
@@ -53,5 +36,3 @@ echo 'export PYSPARK_PYTHON="python2.7"' >>  $BASH_PROFILE
 echo "export PYTHONPATH=$SPARK_HOME/python/:$SPARK_HOME/python/lib/py4j-*.zip:/usr/local/bin/python2.7" >> $BASH_PROFILE
 echo "export IPYTHON=1" >> $BASH_PROFILE
 echo "export IPYTHON_OPTS=\"notebook --profile=default --ipython-dir $ROOT_DIR/profiles --notebook-dir=$ROOT_DIR/notebooks\"" >> $BASH_PROFILE
-
-exit 0

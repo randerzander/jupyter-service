@@ -26,8 +26,6 @@ Then you can click on 'Add Service' from the 'Actions' dropdown menu in the bott
 
 ![IPython Notebook Example](screenshots/wordCount.png)
 
-[A logfile WordCount Analysis Example](screenshots/WordCount.html)
-
 If you want to remove the IPython service, stop it, then:
 ```
 curl -u $user:$pass -i -H 'X-Requested-By: ambari' -X DELETE http://$host:8080/api/v1/clusters/$cluster/services/IPYTHON

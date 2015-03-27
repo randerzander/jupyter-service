@@ -6,6 +6,7 @@ from resource_management import *
 config = Script.get_config()
 
 # Notebook service configs
+# TODO - add port configuration
 user = config['configurations']['ipython-config']['ipython.user']
 group = config['configurations']['ipython-config']['ipython.group']
 log_dir = config['configurations']['ipython-config']['log.dir']
@@ -28,5 +29,5 @@ executor_memory = str(config['configurations']['ipython-config']['executor.memor
 
 ipynb_install = 'sh ' + scripts_dir + 'ipynb_install.sh ' + root_dir + ' ' + files_dir
 start_cmd = 'source ' + bash_profile + '; sh ' + scripts_dir + 'start.sh'
-start_args = ['"'+root_dir+'/spark/bin/pyspark --master yarn-client --num-executors '+num_executors+' --executor-memory '+executor_memory+'"', log_dir + '/notebook.log', pid_file]
+start_args = ['"'+root_dir+'/spark/bin/pyspark --master yarn-client --num-executors '+num_executors+' --executor-memory '+executor_memory+' --matplotlib"', log_dir + '/notebook.log', pid_file]
 commands = {'install': ipynb_install, 'start': start_cmd + ' ' + ' '.join(start_args)}
