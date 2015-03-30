@@ -1,0 +1,13 @@
+{
+    "display_name": "Scala 2.10.4",
+    "language": "scala",
+    "argv": [
+        "SPARK_HOME/bin/spark-submit",
+        "--master","yarn-client",
+        "--class","org.tribbloid.ispark.Main",
+        "ROOT_DIR/.ipython/kernels/scala/ispark-core-assembly-0.2.0-SNAPSHOT.jar",
+        "--profile", "{connection_file}",
+        "--parent"
+     ],
+     "codemirror_mode": "scala"
+}
