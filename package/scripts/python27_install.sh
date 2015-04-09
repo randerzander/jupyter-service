@@ -16,13 +16,14 @@ cd Python-2.7.9
 make altinstall
 python2.7 $FILES_DIR/ez_setup.py
 easy_install pip
-cd /usr/local/lib/python2.7
-rm -rf site-packages
-# extract preconfigured site-packages
-tar -xzvf $FILES_DIR/site-packages.tgz
-cd site-packages
-# scipy too big to package with site-packages
-tar -xzvf $FILES_DIR/scipy.tgz
+
+# Deploy prepackaged Python libs
+for filename in $FILES_DIR/libs/*.tgz
+do
+  tar -xzvf $filename -C /usr/local/lib/python2.7/site-packages/
+done
+
+# Deploy bin links
 cd /usr/local/bin
 cp $FILES_DIR/bin/* .
 chmod +x *

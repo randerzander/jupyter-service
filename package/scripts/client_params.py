@@ -1,15 +1,19 @@
 #!/usr/bin/env python
 from resource_management.libraries.functions.version import format_hdp_stack_version, compare_versions
 from resource_management import *
+import os
 
 # server configurations
 config = Script.get_config()
 pid_file = config['configurations']['ipython-env']['pid_file']
 
-prefix = 'cd /tmp; '
-stack_dir = '/var/lib/ambari-agent/cache/stacks/HDP/2.2/services/ipython-stack/package/'
-files_dir = stack_dir + 'files/'
-scripts_dir = stack_dir + 'scripts/'
+package_dir = os.path.realpath(__file__).split('/package')[0] + '/package/'
+files_dir = package_dir + 'files/'
+scripts_dir = package_dir + 'scripts/'
 
-install = prefix + 'sh ' + scripts_dir + 'python27_install.sh ' + files_dir
-commands = {'install': install}
+distribution = platform.linux_distribution()[0].lower()
+if distribution in ['centos', 'redhat'] :
+  repo_dir = files_dir+'repos/rhel6'
+  os_repo_dir = '/etc/yum.repos.d/'
+
+commands = ['cd /tmp; sh ' + scripts_dir + 'python27_install.sh ' + files_dir]

@@ -1,5 +1,6 @@
 import sys, os, pwd, grp, signal
 from resource_management import *
+import ambari_helpers as helpers
 
 class Client(Script):
   def install(self, env):
@@ -7,12 +8,10 @@ class Client(Script):
     import client_params as params
 
     # Add repos to yum
-    for repo in os.listdir(params.files_dir+'repos/'):
-      if not os.path.isfile('/etc/yum.repos.d/' + repo):
-        Execute('cp ' + params.files_dir+'repos/' + repo + ' /etc/yum.repos.d/')
+    helpers.add_repos(params.repo_dir, params.os_repo_dir)
     self.install_packages(env)
 
-    Execute(params.commands['install'])
+    for command in params.commands: Execute(command)
 
   def status(self, env): raise ClientComponentHasNoStatus()
 

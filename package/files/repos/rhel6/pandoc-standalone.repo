@@ -1,0 +1,15 @@
+# Place this file in your /etc/yum.repos.d/ directory
+
+[pandoc-standalone]
+name=pandoc-standalone
+baseurl=http://petersen.fedorapeople.org/pandoc-standalone/epel-5/$basearch/
+enabled=1
+skip_if_unavailable=1
+gpgcheck=0
+
+[pandoc-standalone-source]
+name=pandoc-static - Source
+baseurl=http://petersen.fedorapeople.org/pandoc-standalone/epel-5/SRPMS
+enabled=0
+skip_if_unavailable=1
+gpgcheck=0

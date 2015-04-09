@@ -12,7 +12,9 @@
                   <name>IPYTHON_MASTER</name>
                   <displayName>IPython Notebook</displayName>
                   <category>MASTER</category>
-                  <cardinality>1</cardinality>
+                  <cardinality>1+</cardinality>
+                  <co-locate>IPYTHON/PYTHON27_CLIENT</co-locate>
+                  <co-locate>SPARK/SPARK_CLIENT</co-locate>
                   <commandScript>
                     <script>scripts/master.py</script>
                     <scriptType>PYTHON</scriptType>
