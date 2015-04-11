@@ -3,19 +3,14 @@
  
 <configuration>
  <property require-input="true">
-    <name>ipython.user</name>
-    <description>iPython Notebook Linux Username</description>
-    <value>ipython</value>
- </property>
- <property require-input="true">
-    <name>ipython.group</name>
-    <description>iPython Notebook Linux Group</description>
-    <value>ipython</value>
+    <name>jupyter.user</name>
+    <description>Jupyter (IPython) Server Linux Username</description>
+    <value>jupyter</value>
  </property>
  <property require-input="true">
     <name>log.dir</name>
-    <description>iPython Notebook Logs Directory</description>
-    <value>/var/log/ipython-notebook</value>
+    <description>Jupyter Server Logs Directory</description>
+    <value>/var/log/jupyter</value>
  </property>
  <property require-input="true">
     <name>num.executors</name>

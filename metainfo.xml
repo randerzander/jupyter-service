@@ -3,17 +3,17 @@
     <schemaVersion>2.0</schemaVersion>
     <services>
         <service>
-            <name>IPYTHON</name>
-            <displayName>IPython</displayName>
-            <comment>IPython Notebook</comment>
+            <name>JUPYTER</name>
+            <displayName>Jupyter</displayName>
+            <comment>Jupyter (IPython3) Notebook</comment>
             <version>0.2.0</version>
             <components>
                 <component>
-                  <name>IPYTHON_MASTER</name>
-                  <displayName>IPython Notebook</displayName>
+                  <name>JUPYTER_MASTER</name>
+                  <displayName>Jupyter (IPython3) Notebook Server</displayName>
                   <category>MASTER</category>
                   <cardinality>1+</cardinality>
-                  <co-locate>IPYTHON/PYTHON27_CLIENT</co-locate>
+                  <co-locate>JUPYTER/PYTHON27_CLIENT</co-locate>
                   <co-locate>SPARK/SPARK_CLIENT</co-locate>
                   <commandScript>
                     <script>scripts/master.py</script>
@@ -68,7 +68,7 @@
               </osSpecific>
             </osSpecifics>
             <configuration-dependencies>
-              <config-type>ipython-config</config-type>
+              <config-type>jupyter-config</config-type>
             </configuration-dependencies>
         </service>
     </services>

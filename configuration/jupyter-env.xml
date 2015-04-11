@@ -3,7 +3,7 @@
 <configuration>
   <property>
     <name>pid_file</name>
-    <value>/var/run/ipython-notebook/notebook.pid</value>
+    <value>/var/run/jupyter/server.pid</value>
     <description>Process ID File</description>
   </property> 
 </configuration> 

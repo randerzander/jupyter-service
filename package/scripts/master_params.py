@@ -8,15 +8,14 @@ config = Script.get_config()
 
 # Notebook service configs
 # TODO - add port configuration
-user = config['configurations']['ipython-config']['ipython.user']
-group = config['configurations']['ipython-config']['ipython.group']
-log_dir = config['configurations']['ipython-config']['log.dir']
-pid_file = config['configurations']['ipython-env']['pid_file']
+user = config['configurations']['jupyter-config']['jupyter.user']
+log_dir = config['configurations']['jupyter-config']['log.dir']
+pid_file = config['configurations']['jupyter-env']['pid_file']
 pid_dir = '/'.join(pid_file.split('/')[0:-1])
 
 # Spark configs
-num_executors = str(config['configurations']['ipython-config']['num.executors'])
-executor_memory = str(config['configurations']['ipython-config']['executor.memory'])
+num_executors = str(config['configurations']['jupyter-config']['num.executors'])
+executor_memory = str(config['configurations']['jupyter-config']['executor.memory'])
 
 package_dir = os.path.realpath(__file__).split('/package')[0] + '/package/'
 files_dir = package_dir + 'files/'
@@ -41,7 +40,7 @@ commands = []
 mkdirs=[root_dir, root_dir+'/notebooks', pid_dir, log_dir, root_dir+'/.ipython']
 for dir in mkdirs: commands.append('mkdir -p ' + dir)
 # Install script
-commands.append('sh ' + scripts_dir + 'ipynb_setup.sh ' + root_dir + ' ' + files_dir)
+commands.append('sh ' + scripts_dir + 'jupyter_setup.sh ' + root_dir + ' ' + files_dir)
 # Set ownership of all directories to proper users
 for dir in mkdirs:
   commands.append('chown -R ' + user + ' ' + dir)
