@@ -26,7 +26,7 @@ root_dir = '/home/'+user
 distribution = platform.linux_distribution()[0].lower()
 #TODO: add ubuntu
 if distribution in ['centos', 'redhat'] :
-  repo_dir = files_dir+'repos/rhel6'
+  repo_dir = files_dir+'repos/rhel6/'
   os_repo_dir = '/etc/yum.repos.d/'
 
 bash_profile = user.lower() + '/.bashrc'
@@ -47,7 +47,5 @@ for dir in mkdirs:
   commands.append('chown -R ' + user + ' ' + dir)
   commands.append('chgrp -R ' + user + ' ' + dir)
 
-#start_args = ['"pyspark --master yarn-client --num-executors '+num_executors+' --executor-memory '+executor_memory+'"', log_dir + '/notebook.log', pid_file]
-start_args = ['"pyspark --master yarn"', log_dir + '/notebook.log', pid_file]
+start_args = ['"pyspark --master yarn --executor-memory '+executor_memory+' --num-executors '+num_executors+'"', log_dir + '/notebook.log', pid_file]
 start_command = 'source ' + bash_profile + '; sh ' + scripts_dir + 'start.sh ' + ' '.join(start_args)
-#start_args = ['"ipython notebook --profile=default --ipython-dir '+root_dir+'/.ipython --notebook-dir '+root_dir+'/notebooks"', log_dir + '/notebook.log', pid_file]
