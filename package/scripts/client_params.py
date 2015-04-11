@@ -5,7 +5,7 @@ import os
 
 # server configurations
 config = Script.get_config()
-pid_file = config['configurations']['ipython-env']['pid_file']
+pid_file = config['configurations']['jupyter-env']['pid_file']
 
 package_dir = os.path.realpath(__file__).split('/package')[0] + '/package/'
 files_dir = package_dir + 'files/'
