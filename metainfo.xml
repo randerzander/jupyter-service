@@ -57,7 +57,7 @@
                   <package><name>lapack-devel</name></package>
                   <package><name>blas</name></package>
                   <package><name>blas-devel</name></package>
-                  <package><name>zeromq-devel</name></package>
+                  <package><name>zeromq3-devel</name></package>
                   <package><name>python-devel</name></package>
                   <package><name>make</name></package>
                   <package><name>pandoc</name></package>
