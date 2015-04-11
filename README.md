@@ -28,7 +28,7 @@ Then you can click on 'Add Service' from the 'Actions' dropdown menu in the bott
 
 If you want to remove the IPython service, stop it, then:
 ```
-curl -u $user:$pass -i -H 'X-Requested-By: ambari' -X DELETE http://$host:8080/api/v1/clusters/$cluster/services/IPYTHON
+curl -u $user:$pass -i -H 'X-Requested-By: ambari' -X DELETE http://$host:8080/api/v1/clusters/$cluster/services/JUPYTER
 ```
 A 'remove.sh' script is provided in the project root for convenience. It'll remove the stack package from Ambari's resources as well as clear out /home/ipython.
 
