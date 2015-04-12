@@ -1,8 +1,10 @@
-An Ambari Stack service for IPython (Jupyter) Notebook with pre-installed packages for working with data in Hadoop (pydoop, scikit-learn, pandas, numpy, scipy, etc.).
+An Ambari service for Jupyter (IPython3) Notebooks. It comes with Python2.7 and many packages for working with data in Hadoop (pydoop, scikit-learn, pandas, numpy, scipy, etc.).
 
-This stack deploys Python 2.7.9 as an altinstall. Make sure you backup any site-packages already installed in /usr/local/lib/python2.7/site-packages.
+**Warning**: The Jupyter master service must be co-located on a node with the Spark Client (Jupyter Notebook depends on Spark Client libs in /usr/hdp/current/spark-client).
 
-To enable support for the Spark REPL API, the service downloads and uses a Spark build (~200MB) from dropbox. This will not interfere with existing Spark installs.
+If you want to use the R kernel, install the [r-service](https://github.com/randerzander/r-service) first.
+
+This stack deploys Python 2.7.9 as an altinstall. Make sure you backup any libraries already installed in /usr/local/lib/python2.7/site-packages.
 
 To deploy, copy the entire directory into your Ambari stacks folder and restart Ambari:
 
