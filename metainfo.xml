@@ -5,7 +5,7 @@
         <service>
             <name>JUPYTER</name>
             <displayName>Jupyter</displayName>
-            <comment>Jupyter (IPython3) Notebook</comment>
+            <comment>Jupyter Notebook Server</comment>
             <version>0.2.0</version>
             <components>
                 <component>
