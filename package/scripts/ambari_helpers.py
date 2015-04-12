@@ -22,4 +22,5 @@ def create_hdfs_user(user):
 
 def stop(pid_file):
   with open(pid_file, 'r') as fp:
-    os.kill(int(fp.read().strip()), signal.SIGTERM)
+    try:os.kill(int(fp.read().strip()), signal.SIGTERM)
+    except OSError: pass

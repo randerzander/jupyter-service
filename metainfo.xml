@@ -5,12 +5,12 @@
         <service>
             <name>JUPYTER</name>
             <displayName>Jupyter</displayName>
-            <comment>Jupyter Notebook Server</comment>
+            <comment>Jupyter (IPython3)</comment>
             <version>0.2.0</version>
             <components>
                 <component>
                   <name>JUPYTER_MASTER</name>
-                  <displayName>Jupyter (IPython3) Notebook Server</displayName>
+                  <displayName>Jupyter (IPython3) Server</displayName>
                   <category>MASTER</category>
                   <cardinality>1+</cardinality>
                   <co-locate>JUPYTER/PYTHON27_CLIENT</co-locate>
