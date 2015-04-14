@@ -8,12 +8,13 @@ config = Script.get_config()
 
 # Notebook service configs
 # TODO - add port configuration
-user = config['configurations']['jupyter-config']['jupyter.user']
-log_dir = config['configurations']['jupyter-config']['log.dir']
+user = config['configurations']['jupyter-env']['jupyter.user']
+log_dir = config['configurations']['jupyter-env']['log.dir']
 pid_file = config['configurations']['jupyter-env']['pid_file']
 pid_dir = '/'.join(pid_file.split('/')[0:-1])
 
 # Spark configs
+spark_home = config['configurations']['jupyter-env']['spark.home']
 num_executors = str(config['configurations']['jupyter-config']['num.executors'])
 executor_memory = str(config['configurations']['jupyter-config']['executor.memory'])
 
@@ -40,11 +41,11 @@ commands = []
 mkdirs=[root_dir, root_dir+'/notebooks', pid_dir, log_dir, root_dir+'/.ipython']
 for dir in mkdirs: commands.append('mkdir -p ' + dir)
 # Install script
-commands.append('sh ' + scripts_dir + 'jupyter_setup.sh ' + root_dir + ' ' + files_dir)
+commands.append('sh ' + scripts_dir + 'jupyter_setup.sh ' + root_dir + ' ' + files_dir + ' ' + spark_home)
 # Set ownership of all directories to proper users
 for dir in mkdirs:
   commands.append('chown -R ' + user + ' ' + dir)
   commands.append('chgrp -R ' + user + ' ' + dir)
 
-start_args = ['"pyspark --master yarn --executor-memory '+executor_memory+' --num-executors '+num_executors+'"', log_dir + '/notebook.log', pid_file]
+start_args = ['"'+spark_home+'bin/pyspark --master yarn --executor-memory '+executor_memory+' --num-executors '+num_executors+'"', log_dir + '/server.log', pid_file]
 start_command = 'source ' + bash_profile + '; sh ' + scripts_dir + 'start.sh ' + ' '.join(start_args)

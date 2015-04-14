@@ -3,16 +3,6 @@
  
 <configuration>
  <property require-input="true">
-    <name>jupyter.user</name>
-    <description>Jupyter (IPython) Server Linux Username</description>
-    <value>jupyter</value>
- </property>
- <property require-input="true">
-    <name>log.dir</name>
-    <description>Jupyter Server Logs Directory</description>
-    <value>/var/log/jupyter</value>
- </property>
- <property require-input="true">
     <name>num.executors</name>
     <description>Default number of Spark executors</description>
     <value>2</value>

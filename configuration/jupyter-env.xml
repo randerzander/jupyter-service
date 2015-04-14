@@ -1,9 +1,24 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
+  <property require-input="true">
+    <name>spark.home</name>
+    <description>SPARK_HOME directory (must be on same node as Jupyer Service)</description>
+    <value>/usr/hdp/current/spark-client/</value>
+  </property>
+  <property>
+    <name>jupyter.user</name>
+    <description>Jupyter (IPython) Server Linux Username</description>
+    <value>jupyter</value>
+  </property>
   <property>
     <name>pid_file</name>
     <value>/var/run/jupyter/server.pid</value>
     <description>Process ID File</description>
+  </property> 
+  <property>
+    <name>log.dir</name>
+    <value>/var/log/jupyter</value>
+    <description>Jupyter Notebook Server logfile</description>
   </property> 
 </configuration> 

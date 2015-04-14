@@ -27,16 +27,6 @@ Then you can click on 'Add Service' from the 'Actions' dropdown menu in the bott
 
 ![IPython Notebook Example](screenshots/wordCount.png)
 
-If you want to remove the IPython service, stop it, then:
-```
-curl -u $user:$pass -i -H 'X-Requested-By: ambari' -X DELETE http://$host:8080/api/v1/clusters/$cluster/services/JUPYTER
-```
-A 'remove.sh' script is provided in the project root for convenience. It'll remove the service package from Ambari's resources dir and remove /home/jupyter
-
-If you need to remove the Python2.7 install:
-```
-rm -rf /usr/local/lib/python2.7
-rm /usr/local/bin/python2.7
-```
+A 'remove.sh' script is provided in the project root for convenience. It'll remove the service package from Ambari's resources dir, remove /home/jupyter, and Python2.7 bits. Please edit remove.sh to set your Ambari login and cluster name details.
 
 Special thanks to [Ali Bajwa](https://github.com/abajwa-hw) and [Ofer Mendelevitch](https://github.com/ofermend) for the help with setup and build processes.
