@@ -10,8 +10,9 @@ config = Script.get_config()
 # TODO - add port configuration
 user = config['configurations']['jupyter-env']['jupyter.user']
 log_dir = config['configurations']['jupyter-env']['log.dir']
-pid_file = config['configurations']['jupyter-env']['pid_file']
+pid_file = config['configurations']['jupyter-env']['pid.file']
 pid_dir = '/'.join(pid_file.split('/')[0:-1])
+jupyter_port = str(config['configurations']['jupyter-env']['jupyter.port'])
 
 # Spark configs
 spark_home = config['configurations']['jupyter-env']['spark.home']
@@ -41,7 +42,7 @@ commands = []
 mkdirs=[root_dir, root_dir+'/notebooks', pid_dir, log_dir, root_dir+'/.ipython']
 for dir in mkdirs: commands.append('mkdir -p ' + dir)
 # Install script
-commands.append('sh ' + scripts_dir + 'jupyter_setup.sh ' + root_dir + ' ' + files_dir + ' ' + spark_home)
+commands.append('sh ' + scripts_dir + 'jupyter_setup.sh ' + root_dir + ' ' + files_dir + ' ' + spark_home + ' ' + jupyter_port)
 # Set ownership of all directories to proper users
 for dir in mkdirs:
   commands.append('chown -R ' + user + ' ' + dir)

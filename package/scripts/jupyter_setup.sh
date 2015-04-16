@@ -3,21 +3,18 @@ set -eu
 ROOT_DIR=$1
 FILES_DIR=$2
 SPARK_HOME=$3
+JUPYTER_PORT=$4
 BASH_PROFILE=$ROOT_DIR/.bashrc
 
-# Abort if ipynb already installed
-#if [ -d $ROOT_DIR/.ipython/profile_default ]; then
-#  echo "IPython Notebook already installed. Exiting."
-#  exit 0
-#fi
-
+# Copy and configure profile and example notebooks
 cp -R $FILES_DIR/profile_default $ROOT_DIR/.ipython/
 cp -R $FILES_DIR/notebooks/* $ROOT_DIR/notebooks/
+sed -i '6s@.*@c.NotebookApp.port = '$JUPYTER_PORT'@' $ROOT_DIR/.ipython/profile_default/ipython_notebook_config.py
+
 # Copy & configure kernels 
 cp -R $FILES_DIR/kernels $ROOT_DIR/.ipython/
-#sed -i.bak 's@SPARK_HOME@'$SPARK_HOME'@g' $ROOT_DIR/.ipython/kernels/scala/kernel.json
+# Set params for Scala kernel
 sed -i '5s@.*@"'$SPARK_HOME'bin/spark-submit",@' $ROOT_DIR/.ipython/kernels/scala/kernel.json
-#sed -i.bak 's@ROOT_DIR@'$ROOT_DIR'@g' $ROOT_DIR/.ipython/kernels/scala/kernel.json
 sed -i '8s@.*@"'$ROOT_DIR'/.ipython/kernels/scala/ispark-core-assembly-0.2.0-SNAPSHOT.jar",@' $ROOT_DIR/.ipython/kernels/scala/kernel.json
 
 # Set up bashrc for ipython user

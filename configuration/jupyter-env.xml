@@ -12,7 +12,12 @@
     <value>jupyter</value>
   </property>
   <property>
-    <name>pid_file</name>
+    <name>jupyter.port</name>
+    <description>Jupyter Server Port</description>
+    <value>9999</value>
+  </property>
+  <property>
+    <name>pid.file</name>
     <value>/var/run/jupyter/server.pid</value>
     <description>Process ID File</description>
   </property> 
