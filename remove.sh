@@ -31,5 +31,5 @@ curl -u $USER:$PASS -i -H 'X-Requested-By: ambari' -X DELETE http://$HOST/api/v1
 
 #Remove Python2.7
 echo Removing Python2.7 bits..
-#rm -rf /usr/local/lib/python2.7
-#rm /usr/local/bin/python2.7
+rm -rf /usr/local/lib/python2.7
+rm /usr/local/bin/python2.7
