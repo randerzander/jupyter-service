@@ -2,6 +2,16 @@ An Ambari service for Jupyter (IPython3) Notebooks. It comes with Python2.7 and 
 
 **Warning**: The Jupyter master service must be co-located on a node with the Spark Client (Jupyter Notebook depends on Spark Client libs in /usr/hdp/current/spark-client).
 
+If you want to use your own Spark build, change the spark.home setting via Ambari to a directory accessible to jupyter.user (Default is 'jupyter'). Make sure your SPARK_HOME/conf/spark-defaults.conf includes your HDP version. For example:
+```
+sudo su jupyter
+cd /home/jupyter
+wget http://d3kbcqa49mib13.cloudfront.net/spark-1.3.1-bin-hadoop2.6.tgz
+tar -xzvf spark-1.3.1-bin-hadoop2.6.tgz
+echo "spark.driver.extraJavaOptions -Dhdp.version=2.2.0.0-2041" >> spark-1.3.1-bin-hadoop2.6/conf/spark-defaults.conf
+echo "spark.yarn.am.extraJavaOptions -Dhdp.version=2.2.0.0-2041" >> spark-1.3.1-bin-hadoop2.6/conf/spark-defaults.conf
+```
+
 If you want to use the R kernel, install the [r-service](https://github.com/randerzander/r-service) first.
 
 This stack deploys Python 2.7.9 as an altinstall. Make sure you backup any libraries already installed in /usr/local/lib/python2.7/site-packages.
