@@ -3,7 +3,7 @@
 <configuration>
   <property require-input="true">
     <name>spark.home</name>
-    <description>SPARK_HOME directory (must be on same node as Jupyer Service)</description>
+    <description>SPARK_HOME directory (must be on same node as Jupyter Service)</description>
     <value>/usr/hdp/current/spark-client/</value>
   </property>
   <property>
