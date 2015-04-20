@@ -8,7 +8,7 @@ class Client(Script):
     import client_params as params
 
     # Add repos to yum
-    helpers.add_repos(params.repo_dir, params.os_repo_dir)
+    helpers.add_repos()
     self.install_packages(env)
 
     for command in params.commands: Execute(command)

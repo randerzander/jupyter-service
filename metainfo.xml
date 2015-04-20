@@ -6,7 +6,7 @@
             <name>JUPYTER</name>
             <displayName>Jupyter</displayName>
             <comment>Jupyter (IPython3)</comment>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
             <components>
                 <component>
                   <name>JUPYTER_MASTER</name>
@@ -16,7 +16,7 @@
                   <co-locate>JUPYTER/PYTHON27_CLIENT</co-locate>
                   <co-locate>SPARK/SPARK_CLIENT</co-locate>
                   <commandScript>
-                    <script>scripts/master.py</script>
+                    <script>scripts/ambari/master.py</script>
                     <scriptType>PYTHON</scriptType>
                     <timeout>5000</timeout>
                   </commandScript>
@@ -27,7 +27,7 @@
                   <category>CLIENT</category>
                   <cardinality>1+</cardinality>
                   <commandScript>
-                    <script>scripts/client.py</script>
+                    <script>scripts/ambari/client.py</script>
                     <scriptType>PYTHON</scriptType>
                     <timeout>5000</timeout>
                   </commandScript>
@@ -37,9 +37,6 @@
               <osSpecific>
                 <osFamily>redhat6</osFamily>
                 <packages>
-                  <package><name>gcc</name></package>
-                  <package><name>gcc-c++</name></package>
-                  <package><name>gcc-gfortran</name></package>
                   <package><name>zlib-devel</name></package>
                   <package><name>bzip2-devel</name></package>
                   <package><name>openssl-devel</name></package>
@@ -52,18 +49,16 @@
                   <package><name>libXt-devel</name></package>
                   <package><name>libxslt-devel</name></package>
                   <package><name>boost-devel</name></package>
-                  <package><name>libcurl</name></package>
                   <package><name>libcurl-devel</name></package>
                   <package><name>lapack-devel</name></package>
                   <package><name>blas</name></package>
                   <package><name>blas-devel</name></package>
                   <package><name>zeromq3-devel</name></package>
                   <package><name>python-devel</name></package>
-                  <package><name>make</name></package>
                   <package><name>pandoc</name></package>
                   <package><name>pandoc-citeproc</name></package>
                   <package><name>readline-devel</name></package>
-                  <package><name>java-1.7.0-openjdk-devel</name></package>
+                  <package><name>geos-devel</name></package>
                 </packages>
               </osSpecific>
             </osSpecifics>

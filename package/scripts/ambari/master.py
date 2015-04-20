@@ -6,7 +6,7 @@ class Master(Script):
     import master_params as params
 
     # Add OS repos and install OS packages
-    helpers.add_repos(params.repo_dir, params.os_repo_dir)
+    helpers.add_repos()
     self.install_packages(env)
     self.configure(env)
 
