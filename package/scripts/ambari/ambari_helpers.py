@@ -1,4 +1,4 @@
-import os, pwd, grp, signal
+import os, pwd, grp, signal, platform
 from resource_management import *
 
 def package_dir(): return os.path.realpath(__file__).split('/package')[0] + '/package/'
