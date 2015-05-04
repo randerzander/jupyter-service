@@ -37,6 +37,7 @@
               <osSpecific>
                 <osFamily>redhat6</osFamily>
                 <packages>
+                  <package><name>epel-release</name></package>
                   <package><name>zlib-devel</name></package>
                   <package><name>bzip2-devel</name></package>
                   <package><name>openssl-devel</name></package>
