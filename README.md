@@ -39,7 +39,7 @@ cp /etc/hive/conf/hive-site.xml spark-1.3.1-bin-hadoop2.6/conf/
 # Disable ATS hooks & Tez
 sed -i "s/org\.apache\.hadoop\.hive\.ql\.hooks\.ATSHook//g" spark-1.3.1-bin-hadoop2.6/conf/hive-site.xml
 sed -i "s/<value>tez/<value>mr/g" spark-1.3.1-bin-hadoop2.6/conf/hive-site.xml
-sed -ir "s|([0-9]+)s|\1|g" spark-1.3.1-bin-hadoop2.6/conf/hive-site.xml
+sed -ri 's ([0-9]+)s \1 g' spark-1.3.1-bin-hadoop2.6/conf/hive-site.xml
 ```
 
 
